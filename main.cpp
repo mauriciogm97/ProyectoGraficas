@@ -1,3 +1,4 @@
+# PROYECTO GRAFICAS MARTHA Y MAURICIO
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
