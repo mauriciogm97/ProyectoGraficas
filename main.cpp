@@ -137,7 +137,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 }
 
 void drawScene() {
-
     //Arreglo para agregar color
     GLfloat color[] = {
         0.0, 255.0, 0.0,
@@ -167,48 +166,7 @@ void drawScene() {
     };
     drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
         (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
-        (Z_ORIGIN + Z_LIMIT) / 2.0, (Z_ORIGIN + Z_LIMIT),
+        0, Z_LIMIT,
         color);
-
-
-    GLfloat vertices[] =
-    {
-        // Cara frontal: verde
-        X_ORIGIN, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_LIMIT, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_LIMIT, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_ORIGIN, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Izquierda
-
-        // Cara Tracera: morado
-        X_ORIGIN, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_LIMIT, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_LIMIT, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_ORIGIN, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Abajo Izquierda
-
-        // Cara Izquierda: azul
-        X_ORIGIN, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_ORIGIN, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_ORIGIN, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_ORIGIN, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Izquierda
-
-        // Cara Derecha: celeste
-        X_LIMIT, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_LIMIT, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_LIMIT, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_LIMIT, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Abajo Izquierda
-
-        // Cara Superior
-        X_ORIGIN, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_LIMIT, Y_ORIGIN, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_LIMIT, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_ORIGIN, Y_ORIGIN, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Izquierda
-
-        // Cara Inferior
-        X_ORIGIN, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Izquierda
-        X_LIMIT, Y_LIMIT, -(Z_ORIGIN + Z_LIMIT)/2, // Arriba Derecha
-        X_LIMIT, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2, // Abajo Derecha
-        X_ORIGIN, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2  // Abajo Izquierda
-
-    };
 }
 
