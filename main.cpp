@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 
+#include "Shapes.h"
 #include "House.h"
 
 #define SCREEN_WIDTH 1280
@@ -136,6 +137,40 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 }
 
 void drawScene() {
+
+    //Arreglo para agregar color
+    GLfloat color[] = {
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+    };
+    drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
+        (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
+        (Z_ORIGIN + Z_LIMIT) / 2.0, (Z_ORIGIN + Z_LIMIT),
+        color);
+
+
     GLfloat vertices[] =
     {
         // Cara frontal: verde
@@ -175,43 +210,5 @@ void drawScene() {
         X_ORIGIN, Y_LIMIT, (Z_ORIGIN + Z_LIMIT)/2  // Abajo Izquierda
 
     };
-    //Arreglo para agregar color
-    GLfloat colour[] = {
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-    };
-
-    // glPolygonMode( GL_FRONT_AND_BACK, GL_LINE ); // Se coment� esta linea para quitar poder hacer solidos a los objetos
-    glEnable(GL_DEPTH_TEST); //Agregar la proyecci�n de profundidad
-    glDepthMask(GL_TRUE);//Agregar la proyecci�n de profundidad
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-    glVertexPointer(3, GL_FLOAT, 0, vertices);
-    glColorPointer(3, GL_FLOAT, 0, colour); //Buffer de color
-    glDrawArrays(GL_QUADS, 0, 24);
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
 }
 
