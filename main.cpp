@@ -82,7 +82,7 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
         drawScene();
-        drawHouse(halfScreenWidth, halfScreenHeight, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth, 100, -200, 120, 200, 50);
 
         glPopMatrix();
 
