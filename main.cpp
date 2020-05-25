@@ -5,6 +5,7 @@
 
 #include "Shapes.h"
 #include "House.h"
+#include "Building.h"
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
@@ -82,7 +83,18 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
         drawScene();
-        drawHouse(halfScreenWidth, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth-400, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth-200, 100, -200, 120, 200, 50);
+         drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
+         drawHouse(halfScreenWidth+200, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
+        //del otro lado de la calle
+       
+        drawBuilding(halfScreenWidth-350, 100, 400, 120, 200, 50);
+        drawBuilding(halfScreenWidth, 100, 400, 120, 200, 50);
+        drawBuilding(halfScreenWidth+350, 100, 400, 120, 200, 50);
+        
+        
 
         glPopMatrix();
 
