@@ -17,7 +17,7 @@
 
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-void DrawScene();
+void drawScene();
 
 GLfloat rotationX = 0.0f;
 GLfloat rotationY = 0.0f;
@@ -80,7 +80,7 @@ int main(void)
         glRotatef(rotationY, 0, 1, 0); // Rotar el cubo en Y
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
-        DrawScene();
+        drawScene();
         drawHouse(halfScreenWidth, halfScreenHeight, -200, 120, 200, 50);
 
         glPopMatrix();
@@ -135,7 +135,7 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     }
 }
 
-void DrawScene() {
+void drawScene() {
     GLfloat vertices[] =
     {
         // Cara frontal: verde
