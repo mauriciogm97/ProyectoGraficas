@@ -23,22 +23,27 @@ void drawSphere(GLfloat centerX, GLfloat centerY, GLfloat centerZ, GLfloat diame
     }
 
     GLfloat radius = diameter / 2.0;
-    GLfloat vertices[3888];
+    GLfloat verticesX[1296];
+    GLfloat verticesY[1296];
+    GLfloat verticesZ[1296];
     int vCont = 0;
     for (int x = 1; x <= 360; x += 10) {
         for (int y = 1; y <= 360; y += 10) {
-            vertices[vCont++] = centerX + (radius * cosf(x)) * cosf(y);
-            vertices[vCont++] = centerY + (radius * cosf(x)) * sinf(y);
-            vertices[vCont++] = centerZ + radius * sinf(x);
+            verticesX[vCont] = centerX + (radius * cosf(x)) * cosf(y);
+            verticesY[vCont] = centerY + (radius * cosf(x)) * sinf(y);
+            verticesZ[vCont++] = centerZ + radius * sinf(x);
         }
     }
 
-    /*GLfloat vertices2[3888];
-    for (int x = 0; x < 3888; x += 3) {
-        vertices
-    }*/
-
-    //std::cout << vCont << std::endl;
+    GLfloat vertices[3888];
+    vCont = 0;
+    for (int x = 1; x < 1296; x++) {
+        vertices[vCont++] = verticesX[x];
+        vertices[vCont++] = verticesY[x];
+        vertices[vCont++] = verticesZ[x];
+    }
+    
+   
     //std::sort(vertices, vertices + 3888);
 
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE ); // Se coment� esta linea para quitar poder hacer solidos a los objetos
