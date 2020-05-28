@@ -85,17 +85,17 @@ int main(void)
         drawScene();
         drawHouse(halfScreenWidth-400, 100, -200, 120, 200, 50);
         drawHouse(halfScreenWidth-200, 100, -200, 120, 200, 50);
-         drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
-         drawHouse(halfScreenWidth+200, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth+200, 100, -200, 120, 200, 50);
         drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
         //del otro lado de la calle
        
         drawBuilding(halfScreenWidth-350, 100, 400, 120, 200, 50);
         drawBuilding(halfScreenWidth, 100, 400, 120, 200, 50);
         drawBuilding(halfScreenWidth+350, 100, 400, 120, 200, 50);
-        
-        
 
+        drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
+        
         glPopMatrix();
 
         glfwSwapBuffers(window);
