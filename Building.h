@@ -38,6 +38,7 @@ void drawBuilding(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GL
             0.5f, 0.35f, 0.05f,
             0.5f, 0.35f, 0.05f,
     };
-    drawCube(centerPosX, width, boxCenterPosY, boxHeight*1.2, centerPosZ, depth, boxColor);
+    Cube cube = Cube(centerPosX, width, boxCenterPosY, boxHeight*1.2, centerPosZ, depth, boxColor);
+    cube.Draw();
     
 }

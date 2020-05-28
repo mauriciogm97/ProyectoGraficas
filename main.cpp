@@ -68,6 +68,44 @@ int main(void)
     GLfloat halfScreenWidth = SCREEN_WIDTH / 2;
     GLfloat halfScreenHeight = SCREEN_HEIGHT / 2;
 
+    //Arreglo para agregar color
+    GLfloat color[] = {
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        0.0, 255.0, 0.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        255.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 0.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        0.0, 255.0, 255.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 0.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+        255.0, 255.0, 0.0,
+    };
+    Cube scene = Cube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
+        (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
+        0, Z_LIMIT,
+        color);
+
+    House house1 = House(halfScreenWidth - 400, 100, -200, 120, 200, 50);
+    House house2 = House(halfScreenWidth - 200, 100, -200, 120, 200, 50);
+    House house3 = House(halfScreenWidth, 100, -200, 120, 200, 50);
+    House house4 = House(halfScreenWidth + 200, 100, -200, 120, 200, 50);
+    House house5 = House(halfScreenWidth + 400, 100, -200, 120, 200, 50);
+
 
     // Loop en donde se estar� dibujando la ventana
     while (!glfwWindowShouldClose(window))
@@ -82,19 +120,18 @@ int main(void)
         glRotatef(rotationY, 0, 1, 0); // Rotar el cubo en Y
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
-        drawScene();
-        drawHouse(halfScreenWidth-400, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth-200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth+200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
+        scene.Draw();
+        
+        house1.Draw();
+        house2.Draw();
+        house3.Draw();
+        house4.Draw();
+        house5.Draw();
         //del otro lado de la calle
        
         drawBuilding(halfScreenWidth-350, 100, 400, 120, 200, 50);
         drawBuilding(halfScreenWidth, 100, 400, 120, 200, 50);
         drawBuilding(halfScreenWidth+350, 100, 400, 120, 200, 50);
-
-        drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
         
         glPopMatrix();
 
@@ -148,37 +185,4 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
     }
 }
 
-void drawScene() {
-    //Arreglo para agregar color
-    GLfloat color[] = {
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-    };
-    drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
-        (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
-        0, Z_LIMIT,
-        color);
-}
 
