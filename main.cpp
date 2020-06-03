@@ -90,11 +90,16 @@ int main(void)
         drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
         //del otro lado de la calle
        
-        drawBuilding(halfScreenWidth-350, 100, 400, 120, 200, 50);
-        drawBuilding(halfScreenWidth, 100, 400, 120, 200, 50);
-        drawBuilding(halfScreenWidth+350, 100, 400, 120, 200, 50);
+        drawBuilding(halfScreenWidth-350, 300, 200, 120, 100, 50);
+        drawBuilding(halfScreenWidth, 300, 200, 120, 100, 50);
+        drawBuilding(halfScreenWidth+350, 300, 200, 120, 100, 50);
+        //glRectf(0, 0, halfScreenWidth+600, 20);
+        
+        
+        
 
-        drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
+
+        //drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
         
         glPopMatrix();
 
@@ -150,35 +155,40 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
 void drawScene() {
     //Arreglo para agregar color
+    //Lados y cielo azul
+    //piso verde
     GLfloat color[] = {
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        0.0, 255.0, 0.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        255.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 0.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        0.0, 255.0, 255.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 0.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
-        255.0, 255.0, 0.0,
+        
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.678, 0.847, 0.902,
+        0.604, 0.804, 0.196,
+        0.604, 0.804, 0.196,
+        0.604, 0.804, 0.196,
+        0.604, 0.804, 0.196,
     };
     drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
         (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
         0, Z_LIMIT,
         color);
+    
+    
 }
 
