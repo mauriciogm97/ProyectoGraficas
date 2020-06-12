@@ -8,6 +8,9 @@
 
 void drawHouse(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat width, GLfloat height, GLfloat depth)
 {
+    GLuint image = loadBMP_custom("./my_texture.bmp");
+    glBindTexture(GL_TEXTURE_2D, );
+
     // Roof height is 3/8 of the house height. 
     const GLfloat roofHeight = height * 3.0 / 8.0;
     const GLfloat roofCenterPosY = centerPosY + roofHeight / 2.0;
