@@ -75,5 +75,5 @@ void drawBuilding(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GL
             0.5f, 0.35f, 0.05f,
             0.5f, 0.35f, 0.05f,
     };
-     drawCube(centerPosX, doorWidth, doorCenterPosY-43, doorHeight, doorCenterPosZ-55, doorDepth, doorColor);
+    drawCube(centerPosX, doorWidth, doorCenterPosY-43, doorHeight, doorCenterPosZ-55, doorDepth, doorColor);
 }

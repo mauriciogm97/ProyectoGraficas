@@ -83,24 +83,17 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
         drawScene();
-        drawHouse(halfScreenWidth-400, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth-200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth+200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth - 400, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth - 200, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth + 200, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth + 400, 100, -200, 120, 200, 50);
         //del otro lado de la calle
-       
-        drawBuilding(halfScreenWidth-350, 300, 200, 120, 100, 50);
+
+        drawBuilding(halfScreenWidth - 350, 300, 200, 120, 100, 50);
         drawBuilding(halfScreenWidth, 300, 200, 120, 100, 50);
-        drawBuilding(halfScreenWidth+350, 300, 200, 120, 100, 50);
-        //glRectf(0, 0, halfScreenWidth+600, 20);
-        
-        
-        
+        drawBuilding(halfScreenWidth + 350, 300, 200, 120, 100, 50);
 
-
-        //drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
-        
         glPopMatrix();
 
         glfwSwapBuffers(window);
@@ -158,7 +151,7 @@ void drawScene() {
     //Lados y cielo azul
     //piso verde
     GLfloat color[] = {
-        
+
         0.678, 0.847, 0.902,
         0.678, 0.847, 0.902,
         0.678, 0.847, 0.902,
@@ -188,7 +181,6 @@ void drawScene() {
         (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
         0, Z_LIMIT,
         color);
-    
-    
 }
+
 
