@@ -2,26 +2,49 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-GLuint loadTGA_glfw(const char* imagepath) {
+// Tomado de:
+// https://stackoverflow.com/questions/12518111/how-to-load-a-bmp-on-glut-to-use-it-as-a-texture
+GLuint LoadTexture(const char* filename)
+{
+    GLuint texture;
+    int width, height;
+    unsigned char* data;
 
-    // Create one OpenGL texture
-    GLuint textureID;
-    glGenTextures(1, &textureID);
+    FILE* file;
+    file = fopen(filename, "rb");
 
-    // "Bind" the newly created texture : all future texture functions will modify this texture
-    glBindTexture(GL_TEXTURE_2D, textureID);
+    if (file == NULL) return 0;
+    width = 1024;
+    height = 512;
+    data = (unsigned char*)malloc(width * height * 3);
+    //int size = fseek(file,);
+    fread(data, width * height * 3, 1, file);
+    fclose(file);
 
-    // Read the file, call glTexImage2D with the right parameters
-    glfwLoadTexture2D(imagepath, 0);
+    for (int i = 0; i < width * height; ++i)
+    {
+        int index = i * 3;
+        unsigned char B, R;
+        B = data[index];
+        R = data[index + 2];
 
-    // Nice trilinear filtering.
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glGenerateMipmap(GL_TEXTURE_2D);
+        data[index] = R;
+        data[index + 2] = B;
+    }
 
-    // Return the ID of the texture we just created
-    return textureID;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
+    free(data);
+
+    return texture;
 }
