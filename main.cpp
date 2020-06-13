@@ -17,15 +17,19 @@
 #define Z_ORIGIN 0
 #define Z_LIMIT SCREEN_WIDTH
 
-
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void drawScene();
+void drawRoad();
 
 GLfloat rotationX = 0.0f;
 GLfloat rotationY = 0.0f;
 GLfloat translationX = 0.0f;
 GLfloat translationY = 0.0f;
 GLfloat translationZ = 0.0f;
+
+// Se establece el sistema de coordenadas dentro de la ventana
+GLfloat halfScreenWidth = SCREEN_WIDTH / 2;
+GLfloat halfScreenHeight = SCREEN_HEIGHT / 2;
 
 int main(void)
 {
@@ -63,12 +67,6 @@ int main(void)
     glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HEIGHT, 0, 1000); // Establecer el sistema de coordenadas
     glMatrixMode(GL_MODELVIEW); // Matriz de transformaci�n
 
-
-    // Se establece el sistema de coordenadas dentro de la ventana
-    GLfloat halfScreenWidth = SCREEN_WIDTH / 2;
-    GLfloat halfScreenHeight = SCREEN_HEIGHT / 2;
-
-
     // Loop en donde se estar� dibujando la ventana
     while (!glfwWindowShouldClose(window))
     {
@@ -93,6 +91,8 @@ int main(void)
         drawBuilding(halfScreenWidth - 350, 300, 200, 120, 100, 50);
         drawBuilding(halfScreenWidth, 300, 200, 120, 100, 50);
         drawBuilding(halfScreenWidth + 350, 300, 200, 120, 100, 50);
+
+        drawRoad();
 
         glPopMatrix();
 
@@ -183,4 +183,34 @@ void drawScene() {
         color);
 }
 
+void drawRoad() {
+    //Arreglo para agregar color
+    GLfloat color[] = {
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+        105.0, 105.0, 105.0,
+    };
 
+    drawCube(halfScreenWidth, X_LIMIT, Y_LIMIT, 10, 0, 100, color);
+}
