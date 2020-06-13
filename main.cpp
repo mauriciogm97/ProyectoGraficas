@@ -76,7 +76,7 @@ int main(void)
         glPushMatrix();
         glTranslatef(halfScreenWidth, halfScreenHeight, 0); // Coloca el cubo al centro de la pantalla
         glTranslated(translationX, translationY, translationZ); // Mueve el cubo con las variables de las teclas (Vector de Traslaci�n
-        glRotatef(rotationX, 1, 0, 0); // Rotar el cubo en X
+        glRotatef(rotationX+20, 1, 0, 0); // Rotar el cubo en X
         glRotatef(rotationY, 0, 1, 0); // Rotar el cubo en Y
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
@@ -128,19 +128,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
             break;
         case GLFW_KEY_LEFT:
             rotationY -= rotationSpeed;
-            break;
-
-        case GLFW_KEY_A:
-            translationX -= 10;
-            break;
-        case GLFW_KEY_S:
-            translationX += 10;
-            break;
-        case GLFW_KEY_W:
-            translationY += 10;
-            break;
-        case GLFW_KEY_X:
-            translationY -= 10;
             break;
         }
     }
