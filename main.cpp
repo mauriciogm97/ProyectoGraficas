@@ -2,6 +2,8 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
+#include <cmath>
+#include <iostream>
 
 #include "Shapes.h"
 #include "House.h"
@@ -40,6 +42,10 @@ int main(void)
     // Crear la ventana
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Coronavirus", NULL, NULL);
 
+   
+    
+  
+    
     // Declarar que se recibir�n comando del teclado
     glfwSetKeyCallback(window, keyCallback);
     glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
@@ -83,17 +89,24 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
         drawScene();
-        drawHouse(halfScreenWidth - 400, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth - 200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth + 200, 100, -200, 120, 200, 50);
-        drawHouse(halfScreenWidth + 400, 100, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth-400, 100, -200, 120, 200, 50);
+        drawBuilding2(halfScreenWidth-200, 230, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth,100, -200, 120, 200, 50);
+        drawBuilding2(halfScreenWidth+200, 230, -200, 120, 200, 50);
+        drawHouse(halfScreenWidth+400, 100, -200, 120, 200, 50);
         //del otro lado de la calle
+       
+        drawBuilding(halfScreenWidth-350, 300, 200, 120, 100, 50);
+        drawHouse2(halfScreenWidth,100, 200, 120, 200, 50);
+        drawBuilding(halfScreenWidth+350, 300, 200, 120, 100, 50);
+        //glRectf(0, 0, halfScreenWidth+600, 20);
+        
+        
+        
 
-        drawBuilding(halfScreenWidth - 350, 300, 200, 120, 100, 50);
-        drawBuilding(halfScreenWidth, 300, 200, 120, 100, 50);
-        drawBuilding(halfScreenWidth + 350, 300, 200, 120, 100, 50);
 
+        //drawSphere(halfScreenWidth, halfScreenHeight, -500, 300);
+        
         glPopMatrix();
 
         glfwSwapBuffers(window);
@@ -150,8 +163,10 @@ void drawScene() {
     //Arreglo para agregar color
     //Lados y cielo azul
     //piso verde
+    
+   
     GLfloat color[] = {
-
+        
         0.678, 0.847, 0.902,
         0.678, 0.847, 0.902,
         0.678, 0.847, 0.902,
@@ -177,10 +192,23 @@ void drawScene() {
         0.604, 0.804, 0.196,
         0.604, 0.804, 0.196,
     };
+     
+   
+  
+    
+   
     drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
         (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
         0, Z_LIMIT,
         color);
+    
+    //Agregar Luces
+       glShadeModel(GL_SMOOTH);
+       glEnable(GL_LIGHTING);
+       glEnable(GL_LIGHT0);
+       glColorMaterial(GL_BACK, GL_SPOT_CUTOFF);
+       glEnable(GL_COLOR_MATERIAL);
+    
+    
 }
-
 
