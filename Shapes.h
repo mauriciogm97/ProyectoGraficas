@@ -69,3 +69,5 @@ void drawTrapezoid(GLfloat centerX, GLfloat lowerWidth, GLfloat upperWidth, GLfl
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
 }
+
+

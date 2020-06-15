@@ -1,13 +1,16 @@
 // PROYECTO GRAFICAS MARTHA Y MAURICIO
 #include <GL/glew.h>
+#include <GLUT/glut.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <cmath>
 #include <iostream>
 
+
 #include "Shapes.h"
 #include "House.h"
 #include "Building.h"
+
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
@@ -23,11 +26,15 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 void drawScene();
 void drawRoad();
 
+
 GLfloat rotationX = 0.0f;
 GLfloat rotationY = 0.0f;
 GLfloat translationX = 0.0f;
 GLfloat translationY = 0.0f;
 GLfloat translationZ = 0.0f;
+
+
+
 
 // Se establece el sistema de coordenadas dentro de la ventana
 GLfloat halfScreenWidth = SCREEN_WIDTH / 2;
@@ -87,6 +94,8 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 0);
 
         drawScene();
+        //drawSphere();
+        
         drawHouse(halfScreenWidth - 400, 100, -200, 120, 200, 50);
         drawBuilding2(halfScreenWidth - 200, 230, -200, 120, 200, 50);
         drawHouse(halfScreenWidth, 100, -200, 120, 200, 50);
@@ -98,6 +107,10 @@ int main(void)
         drawHouse2(halfScreenWidth, 100, 200, 120, 200, 50);
         drawBuilding(halfScreenWidth + 350, 300, 200, 120, 100, 50);
         //glRectf(0, 0, halfScreenWidth+600, 20);
+        
+  
+      
+   
 
         drawRoad();
 
@@ -110,7 +123,12 @@ int main(void)
 
     glfwTerminate();
 
+
+
+    
     return 0;
+ 
+    
 }
 
 
@@ -173,18 +191,12 @@ void drawScene() {
         0.604, 0.804, 0.196,
         0.604, 0.804, 0.196,
     };
+   
 
     drawCube((X_ORIGIN + X_LIMIT) / 2.0, X_LIMIT,
         (Y_ORIGIN + Y_LIMIT) / 2.0, Y_LIMIT,
         0, Z_LIMIT,
         color);
-
-    //Agregar Luces
-    glShadeModel(GL_SMOOTH);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
-    glColorMaterial(GL_BACK, GL_SPOT_CUTOFF);
-    glEnable(GL_COLOR_MATERIAL);
 
 
 }
@@ -244,9 +256,22 @@ void drawRoad() {
         1.000, 0.780, 0.200,
         1.000, 0.780, 0.200,
     };
+      
 
     drawCube(halfScreenWidth, X_LIMIT, 0, 10, 0, 200, gray);
     for (int x = 0; x < X_LIMIT; x += 100) {
         drawCube(x, 50, 1, 10, 0, 10, yellow);
     }
+    
+    //Agregar Luces
+    glShadeModel(GL_SMOOTH);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glColorMaterial(GL_BACK, GL_SPOT_CUTOFF);
+    glEnable(GL_COLOR_MATERIAL);
+    
+    glutSolidSphere(200, 10, 10);
+    
 }
+
+    
